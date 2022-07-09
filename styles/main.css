@@ -1,0 +1,80 @@
+*{
+  box-sizing: border-box; /*box가 border여서*/
+}
+html,body {
+  margin: 0;
+  padding:0;
+}
+
+body {
+  background-color: white;
+}
+
+.container {
+  background-color: lightskyblue;
+  max-width:768px;
+  min-height: 100vh;
+  margin: 0 auto; /*왼쪽은 위아래 오른쪽은 좌우 가운데정렬*/
+  
+  display:flex;
+}
+
+nav{ 
+  color:white;
+  background-color: darkcyan;
+  border-radius: 5px;
+
+  /* width:120px; */
+  flex-basis: 120px;
+}
+
+.box-container {
+  background-color: aquamarine;
+
+  /* width:100%; */
+  flex-grow: 1;
+
+  display: flex; /*플렉스 아이템이면서 컨테이너*/
+  flex-wrap: wrap;
+}
+
+.box {
+  background-color: wheat;
+  border: 3px solid orange;
+  border-radius: 5px;
+
+  min-height: 150px; /*높이가 아무리 줄어들더라도 150픽셀유지*/
+  /* width:50%; */
+  flex-basis: 50%;
+  flex-grow: 1;
+}
+
+.box:nth-child(2n) {
+  border-color: mediumblue;
+}
+
+footer{
+  background-color:tomato;
+  border: 3px solid tomato;
+  min-height: 50px;
+  border-radius: 5px;
+
+  flex-grow: 1; /*남은 공간 다 차지하긴 하는데 새박스 들어오면 가로 길이 보장 안됨*/
+  flex-basis: 100%;
+}
+
+@media screen and (max-width:768px){
+  .container {
+    flex-direction: column; /*navigation bar 위로 올라가게*/
+  }
+}
+
+@media screen and (max-width:480px){
+  .box-container {
+    flex-direction: column; /*box 한줄로*/
+  }
+
+  /* .box {
+    flex-basis: 100%; 
+  } */
+}
